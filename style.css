@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+:root {
+  --bright-orange: hsl(31, 77%, 52%);
+  --dark-cyan: hsl(184, 100%, 22%);
+  --very-dark-cyan: hsl(179, 100%, 13%);
+  --transparent: hsla(0, 0%, 100%, 0.75);
+  --very-light-gray: hsl(0, 0%, 95%);
+}
+
+body {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 15px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'sedans'
+    'suvs'
+    'luxury';
+  width: 300px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 50px 0;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 50px 30px 30px;
+}
+
+.sedans {
+  grid-area: sedans;
+  background-color: var(--bright-orange);
+}
+
+.suvs {
+  grid-area: suvs;
+  background-color: var(--dark-cyan);
+}
+
+.luxury {
+  grid-area: luxury;
+  background-color: var(--very-dark-cyan);
+}
+
+.logo {
+  width: 50px;
+}
+
+.title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--very-light-gray);
+  margin: 25px 0;
+}
+
+.description {
+  color: var(--transparent);
+  margin-bottom: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: var(--very-light-gray);
+  border-radius: 25px;
+  outline: none;
+  border: 2px solid var(--very-light-gray);
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn.btn-sedans {
+  color: var(--bright-orange);
+}
+
+.btn.btn-suvs {
+  color: var(--dark-cyan);
+}
+
+.btn.btn-luxury {
+  color: var(--very-dark-cyan);
+}
+
+.btn.btn-sedans:hover {
+  background-color: var(--bright-orange);
+  color: var(--very-light-gray);
+}
+
+.btn.btn-suvs:hover {
+  background-color: var(--dark-cyan);
+  color: var(--very-light-gray);
+}
+
+.btn.btn-luxury:hover {
+  background-color: var(--very-dark-cyan);
+  color: var(--very-light-gray);
+}
+
+@media (min-width: 900px) {
+  main {
+    width: 50%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      'sedans suvs'
+      'luxury luxury';
+  }
+
+  .btn {
+    text-align: center;
+    margin-top: 60px;
+  }
+}
+
+@media (min-width: 1300px) {
+  main {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 'sedans suvs luxury';
+  }
+
+  .btn {
+    text-align: inherit;
+    margin-bottom: 15px;
+  }
+}
